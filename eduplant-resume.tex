@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper, portrait, margin=0.75in}
+
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage[colorlinks=false, draft=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\newenvironment{employer_set}[1]{\newcommand{\employer}[0]{{#1}}}{}
+
+\newenvironment{title_itemize}[2]
+{
+	\noindent{}\textbf{\employer{}}\hfill{}{#2}\\
+	\noindent{#1}
+
+	\begin{itemize}[leftmargin=2em, labelindent=\parindent]
+}
+{
+	\end{itemize}
+}
+
+\begin{document}
+
+\noindent{}{\Large\textbf{Eric Duplantis}}
+\vspace{1mm}
+\hrule
+\vspace{1mm}
+\noindent{}900 N Broadway Apt. 553, Los Angeles, CA, 90012 \textbar{} (714) 600-0453 \textbar{} employment@eric.duplant.is
+
+\section*{Experience}
+\begin{employer_set}{California Institute of Technology}
+	\begin{title_itemize}{Senior Network Design Engineer}{May 2022 - current}
+		\item{}\emph{Primary responsibilities} --- Conceptualize, actualize, and deliver a next-generation network enabling the next decade of Caltech research excellence.
+		\begin{itemize}
+			\item{}\emph{Technical leadership:} providing holistic analysis of business and technical needs; identifying and validating a network design to match.
+			\item{}\emph{Designing and testing:} building and exercising proofs-of-concept to determine fitness for purpose.
+		\end{itemize}
+	\item{}\emph{Notable work} --- Interoperability testing for EVPN + VXLAN (IOS-XE and Arista EOS). Vendor onboarding, performance testing, and fit assessment for Cloudflare DDoS mitigation, centralized firewall service. Conducting workshops to teach network staff about EVPN fundamentals.
+	\end{title_itemize}
+\end{employer_set}
+
+\begin{employer_set}{University of Washington}
+	\begin{title_itemize}{Network Engineer, Design and Architecture}{February 2020 - May 2021}
+		\item{}\emph{Primary responsibilities} --- Designing, documenting, and advancing public sector networks with local, regional, and statewide impact.
+		\begin{itemize}
+			\item{}\emph{Operations:} providing technical guidance on new site designs and infrastructure upgrades, assisting operations personnel with escalated incidents, and performing key implementations for high-profile projects.
+			\item{}\emph{Stewardship:} faithfully representing the design goals of multiple networks with different audiences, authoring and actualizing the standards born of these goals.
+			\item{}\emph{Growth and change:} bringing creativity, technical insight, and forethought to conversations which shape the future of the network.
+		\end{itemize}
+	\item{}\emph{Notable work} --- Design lead for emergency expansion of hospital networks to support COVID response, key contributor for medical datacenter and hospital core routing upgrades, active participant in network automation working group.
+	\end{title_itemize}
+\end{employer_set}
+\begin{employer_set}{University of California, Irvine}
+	\begin{title_itemize}{Network Engineer}{May 2013 - January 2020}
+		\item{}\emph{Primary responsibilities} --- Building, maintaining, and troubleshooting general- and special-purpose networks for research and higher education.
+		\begin{itemize}
+			\item{}\emph{Operations:} responding to escalated incidents, performing troubleshooting, and working with clients. Participation in on-call rotation for after-hours response.
+			\item{}\emph{Generalist:} involvement with every aspect of the network --- design, operation, and maintenance.
+			\item{}\emph{User focus:} communicating effectively with end-users, management, and technical stakeholders about changes, upgrades, and outages.
+		\end{itemize}
+	\item{}\emph{Notable work} --- Implementation and support of NSF-funded Science DMZ, design and implementation of large-scale deterministic NAT, design and implementation of networking for campus disaster-recovery site, technical lead for redesign and upgrade of both residential and campus networks, technical lead on many of the highest-profile troubleshooting cases from 2017-2019.
+	\end{title_itemize}
+	\begin{title_itemize}{Residential Network Consultant}{March 2011 - May 2013}
+		\item{}\emph{Primary responsibilities} --- Front-line helpdesk support for residential network users. Working in shifts to provide timely technical assistance for end-users in-person, on the phone, and by email.
+	\end{title_itemize}
+\end{employer_set}
+
+\section*{Relevant Skills}
+\textbf{Network-side} --- Strong working knowledge of forwarding technologies, control-plane protocols, and wire protocols (TCP/UDP, MPLS, IPsec \emph{etc.}). Equally literate in both IPv4 and IPv6.
+\begin{itemize}
+	\item{}\emph{Protocols} --- Production BGP, OSPF, and EIGRP design experience. Familiar with design and operational principles for MPLS and EVPN.
+	\item{}\emph{Vendor-specific} --- Significant production experience with Cisco IOS. Some production experience with Juniper, Arista, other Cisco platforms (NXOS, IOS XE, IOS XR) and A10 ACOS.
+	\item{}\emph{Troubleshooting} --- Packet capture literacy (\texttt{tcpdump} and Wireshark). Competent with PerfSONAR and associated toolset (\texttt{pscheduler}, \texttt{iperf}, etc.).
+\end{itemize}
+\textbf{Host-side} --- Extensive Linux experience (distribution-agnostic). Strong understanding of virtualization/virtualized networking, and their implementation in the Linux networking stack.
+\begin{itemize}
+	\item{}\emph{Scripting and automation} --- Solid foundation in shell scripting, Python, and \texttt{git}, some familiarity with Ansible and templating tools (Jinja, \texttt{m4}). Conversant in the theory and challenges of automation of real-world, heterogenous-vendor networks. Willing and able to quickly learn and apply whatever approach is underway.
+	\item{}\emph{Monitoring tools} --- Experience with Intermapper and Netreo, basic familiarity with Nagios and Solarwinds.
+\end{itemize}
+
+\section*{Education and Training}
+
+\begin{itemize}
+	\item{}\emph{University} --- B.A., Political Science, University of California, Irvine, 2014
+	\item{}\emph{Training} --- Cisco IPv6 (2016), BGP (2017), CCNP Route/Switch series (2018), CCIE Security (2019), Juniper MPLS (2020)
+	\item{}\emph{Certification} --- Cisco CCNA (2017)
+\end{itemize}
+
+
+\end{document}
