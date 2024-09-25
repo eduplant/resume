@@ -1,0 +1,19 @@
+# Filter any miscellaneous LaTeX files ...
+
+eduplant-resume*
+
+
+# ... that aren't the source file.
+
+!eduplant-resume.tex
+
+
+# Filter any vim backup files.
+
+*.swp
+
+
+# Filter out the private contact information .tex file so that the repository
+# can be safely published on the internet.
+
+contact-private.tex
