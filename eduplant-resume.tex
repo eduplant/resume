@@ -1,0 +1,156 @@
+\documentclass[10pt]{article}
+
+% Use geometry to set paper metrics.
+\usepackage{geometry}
+\geometry{letterpaper, portrait, margin=0.75in}
+
+% Use hyperref for email mailto hyperlink.
+\usepackage[colorlinks=false, draft=false, pdfborder={0 0 0}]{hyperref}
+
+% Use enumitem and paracol for text flow assistance in the experience section.
+\usepackage{enumitem}
+\usepackage{paracol}
+
+% Use tcolorbox for the personal introduction callout.
+\usepackage{tcolorbox}
+
+% Hold on to the default version of the section command before titlesec sees it.
+\let\normalsection\section
+\usepackage{titlesec}
+
+\newenvironment{job}[5]
+{
+	\begin{leftcolumn*}
+		\raggedleft{#3}
+	\end{leftcolumn*}
+
+	\begin{rightcolumn}
+		\begin{itemize}[leftmargin=0em, itemindent=0em, labelsep=0.64em, topsep=0em, partopsep=0em]
+			\item[\Large\textbullet]{#1}\hfill{}{#2}~{#3} -- {#4}~{#5}
+			\begin{itemize}[leftmargin=1em, labelindent=\parindent]
+}
+{
+			\end{itemize}
+		\end{itemize}
+	\end{rightcolumn}
+}
+
+\newenvironment{experience}
+{
+	\columnratio{0.05}
+	\setlength{\columnsep}{2em}
+	\setlength{\columnseprule}{0.4pt}
+	\begin{paracol}{2}
+}
+{
+	\end{paracol}
+}
+
+\newenvironment{employer}[1]
+{
+	\renewcommand{\employer}{{#1}}
+	\begin{rightcolumn}
+		\noindent\textbf{\employer}
+		\smallskip
+		{\color{lightgray}\hrule}
+		\smallskip
+	\end{rightcolumn}
+}
+{
+	\let\employer\undefinedmacro
+}
+
+\begin{document}
+
+\noindent{\Large\textbf{Eric Duplantis}}
+\vspace{1mm}
+\hrule
+\vspace{1mm}
+% Import the contact information line from an external file so `make` can redact
+% it conditionally for public consumption.
+\noindent\input{contact.tex}
+\medskip
+
+\begin{tcolorbox}[center, width={\textwidth - 24pt}, title=Who?, fonttitle=\bfseries, coltitle=black, colframe=black, colback=white, colbacktitle=black!25!white, boxrule=0.4pt]
+\noindent An affable systems thinker with a decade of experience from the helpdesk to the helm of higher-education networks. Eric is a motivated and creative debugger whether the solution manifests as packet minuti\ae, a written analysis, or the right conversation. He has more faith in people and processes than in the next thing the vendors are selling.
+\end{tcolorbox}
+
+% Adjust section spacing to work better with the tcolorbox above.
+\titlespacing{\section}{0pt}{2pt}{2.3ex plus .2ex}
+
+\section*{Experience}
+
+% Recall pre-titlesec defaults for subsequent sections.
+\let\section\normalsection
+
+\begin{experience}
+	\begin{employer}{California Institute of Technology}
+		\begin{job}{Lead Network Engineer}{October}{2023}{present}{}
+			\item[]\emph{Primary responsibilities} --- Lead the technical program to design, build, and operate the next-generation Caltech network.\footnote{In practice, these responsibilities are in addition to those in the previous role.}
+			\begin{itemize}
+				\item\emph{Network strategy:} Advise and work closely with directors and the CIO regarding the health and direction of the technical program.
+				\item\emph{Process improvements:} Identify and address pain points and opportunities for improvement in all parts of the network organization.
+				\item\emph{Ambassador:} Talk with network users (both staff and academic) to improve the service. Identify, plan, and meet new needs from the user community.
+			\end{itemize}
+			\item[]\emph{Notable work} --- Primary author of modernization strategies for campus network (core, building routers) and the WAN (peering, transport strategy). Wrote and maintained tools and documentation for initial network automation efforts. Automated the staging environment for the campus network overhaul and verified design functionality; deployment starting soon.
+		\end{job}
+		\begin{job}{Senior Network Design Engineer}{May}{2022}{October}{2023}
+			\item[]\emph{Primary responsibilities} --- Design, build, and operate the next-generation Caltech network.
+			\begin{itemize}
+				\item\emph{Technical leadership:} In conference with other senior engineers, identify and implement infrastructure improvements for the network. Support junior engineering staff with troubleshooting and operating the network as circumstances require.
+				\item\emph{Designing and testing:} Learn new technologies, assess them for fit, and thoroughly test them for incorporation into the network.
+			\end{itemize}
+		\item[]\emph{Notable work} --- Successfully built and demonstrated proof-of-concept EVPN/VXLAN network ahead of capital proposal. Tested VTEP/BGP interoperability for multivendor EVPN + VXLAN (IOS-XE and Arista EOS). Performed vendor onboarding, performance testing, and fit assessment for Cloudflare DDoS mitigation. Influential in technical analysis for vendor transition from all-Cisco to (eventually) all-Arista. Developed and ran internal educational workshops for EVPN, Arista Cloudvision, and basic automation tooling. Served as problem-solver-of-last-resort for the highest profile incidents and vendor escalations throughout tenure (including a novel bug isolation).
+		\end{job}
+	\end{employer}
+
+	\begin{employer}{University of Washington}
+		\begin{job}{Network Engineer, Design and Architecture}{February}{2020}{May}{2021}
+			\item[]\emph{Primary responsibilities} --- Design, document, and advance public sector networks with local, regional, and statewide impact.
+			\begin{itemize}
+				\item\emph{Operations:} Provide technical guidance on new site designs and infrastructure upgrades, assist operations personnel with escalated incidents, and perform key implementations for high-profile projects.
+				\item\emph{Stewardship:} Act in the long-term best interests of the network. In collaboration with other team members, identify shortcomings, anticipate problems, and develop solutions to address both.
+			\end{itemize}
+			\item[]\emph{Notable work} --- Supported emergency expansion of hospital networks for COVID response, contributed design work for medical datacenter and hospital core routing upgrades, was active participant in network automation working group.
+		\end{job}
+	\end{employer}
+
+	\begin{employer}{University of California, Irvine}
+		\begin{job}{Network Engineer}{May}{2013}{January}{2020}
+			\item[]\emph{Primary responsibilities} --- Build, maintain, and troubleshoot general- and special-purpose networks for research and higher education.
+			\begin{itemize}
+				\item\emph{Operations:} Respond to escalated incidents, troubleshoot problems, and work with clients. Participate in on-call rotation for after-hours response.
+				\item\emph{Generalist:} Engage with every aspect of the network: design, operation, and maintenance.
+				\item\emph{User focus:} Communicate effectively with end-users, management, and technical stakeholders about changes, upgrades, and outages.
+			\end{itemize}
+			\item[]\emph{Notable work} --- Implemented and supported NSF-funded Science DMZ, designed and implemented large-scale deterministic NAT, designed and implemented networking for campus disaster-recovery site, was technical lead for redesign and upgrade of both residential and campus networks, was technical lead on many of the highest-profile troubleshooting cases from 2017-2019.
+		\end{job}
+		\begin{job}{Residential Network Consultant}{March}{2011}{May}{2013}
+			\item[]\emph{Primary responsibilities} --- Perform front-line helpdesk support for residential network users. Work in shifts to provide timely technical assistance for end-users in-person, on the phone, and by email.
+		\end{job}
+	\end{employer}
+\end{experience}
+
+\section*{Relevant Skills}
+\textbf{Network-side} --- Strong working knowledge of forwarding technologies, control-plane protocols, and wire protocols (TCP/UDP, MPLS, IPsec \emph{etc.}). Equally literate in both IPv4 and IPv6.
+\begin{itemize}
+	\item\emph{Protocols:} Production BGP, OSPF, and EIGRP design experience. Familiar with design and operational principles for MPLS. Currently immersed in EVPN-on-VXLAN design details.
+	\item\emph{Vendor-specific:} Significant production experience with Cisco IOS and Arista EOS. Some production experience with Juniper, and other Cisco platforms (NXOS, IOS XE, IOS XR).
+	\item\emph{Troubleshooting:} Packet capture literacy (\texttt{tcpdump} and Wireshark). Competent with PerfSONAR and associated toolset (\texttt{pscheduler}, \texttt{iperf}, etc.).
+\end{itemize}
+\textbf{Host-side} --- Extensive Linux experience and solid understanding of the Linux networking stack. 
+\begin{itemize}
+	\item\emph{Scripting and automation:} Solid foundation in shell scripting and Python. Familiar with \texttt{git} for version control. Extensive exposure to templating tools (Jinja2) and serialization formats (YAML, JSON), some familiarity with heavier tools like Ansible.
+	\item\emph{Vendor tools:} Familiarity with deploying, maintaining, and writing API integrations for Arista Cloudvision. Proficient at learning new vendor tools as necessary.
+	\item\emph{Monitoring tools:} Experience with Observium, Intermapper, and Netreo. Basic familiarity with Nagios, Solarwinds, and Zabbix.
+\end{itemize}
+
+\section*{Education and Training}
+
+\begin{itemize}
+	\item\emph{University} --- B.A., Political Science, University of California, Irvine, 2014
+	\item\emph{Training} --- Cisco IPv6 (2016), BGP (2017), CCNP Route/Switch series (2018), CCIE Security (2019), Juniper MPLS (2020)
+	\item\emph{Certification} --- Cisco CCNA (2017)
+\end{itemize}
+
+\end{document}
